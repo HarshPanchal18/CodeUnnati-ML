@@ -16,5 +16,11 @@ pipeline {
                 echo 'Hello'
             }
         }
+
+        stage('Running Files') {
+            steps {
+                python3 Hello.py
+            }
+        }
     }
 }
