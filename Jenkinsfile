@@ -14,17 +14,14 @@ pipeline {
         stage('Echo Hello World') {
             steps {
                 echo 'Hello'
-            }
-
-            steps {
-                echo 'World'
+                echo ' World'
             }
         }
 
         stage('Running Files') {
             steps {
                 //python3 Hello.py
-                python3 --version
+                sh(script: 'python3 --version || echo Ending')
             }
         }
     }
