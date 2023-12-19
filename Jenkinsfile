@@ -11,15 +11,20 @@ pipeline {
                 sh 'python Hello.py'
             }
         }*/
-        stage('Echo Hello') {
+        stage('Echo Hello World') {
             steps {
                 echo 'Hello'
+            }
+
+            steps {
+                echo 'World'
             }
         }
 
         stage('Running Files') {
             steps {
-                python3 Hello.py
+                //python3 Hello.py
+                python3 --version
             }
         }
     }
