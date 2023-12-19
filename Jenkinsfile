@@ -17,12 +17,5 @@ pipeline {
                 echo ' World'
             }
         }
-
-        stage('Running Files') {
-            steps {
-                //python3 Hello.py
-                sh(script: 'python3 --version || echo Ending')
-            }
-        }
     }
 }
