@@ -7,8 +7,8 @@ app = Flask(__name__)
 def index():
     return render_template(template_name_or_list='/index.html')
 
-def generate():
-    cap = cv2.VideoCapture(0)
+def captureVideo():
+    cap = cv2.VideoCapture(index=0)
     while True:
         ret, frame = cap.read()
         frame = cv2.flip(src=frame, flipCode=1)
@@ -19,15 +19,15 @@ def generate():
 
 def objDetection():
     imcap = cv2.VideoCapture(index=0)  # 0 for builtin webcam, 1 or -1 for the externals
-    imcap.set(propId=3, value=640)  # set width as 640
-    imcap.set(propId=4, value=480)  # set height as 480
+    imcap.set(propId=3, value=1920)  # set width as 1920
+    imcap.set(propId=4, value=1080)  # set height as 1080
 
     faceCascade = cv2.CascadeClassifier(
         filename=cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
     )
 
     while True:
-        img = imcap.read()
+        ret, img = imcap.read()
 
         # converting image from color to grayscale
         imgGray = cv2.cvtColor(src=img, code=cv2.COLOR_BGR2GRAY)
